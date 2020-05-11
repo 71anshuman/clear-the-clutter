@@ -4,13 +4,15 @@ files = os.listdir()
 files.remove('main.py')
 
 fileExts = []
-folders = ["images", "compressed", "documents", "executables", "medias", "progs", "others"]
+folders = ["images", "compressed", "documents", "executables", "medias", "progs", "torrent", "database","others"]
 imageExts = [".png", ".jpg", ".jpeg", "gif"]
-compressedExts = [".gz", ".zip", ".gz", ".tar"]
+compressedExts = [".gz", ".zip", ".gz", ".tar", ".iso", ".7z"]
 documentExts = [".pdf", ".docx", ".csv", ".xlsx", ".xls"]
 executableExts = [".dmg", ".exe", ".msi", ".apk", ".pkg"]
 mediaExts = [".mp4", "mp3", ".mov", ".mpeg"]
-progExts = [".php", ".html", ".js", ".py", ".go", "java"]
+progExts = [".php", ".html", ".js", ".py", ".go", "java", ".css", ".scss"]
+databaseExts = [".sql", ".json"]
+torrentExts = [".torrent"]
 
 def getFolderNameByExt(ext):
     if ext in imageExts:
@@ -25,8 +27,12 @@ def getFolderNameByExt(ext):
         return folders[4]
     elif ext in progExts:
         return folders[5]
-    else:
+    elif ext in torrentExts:
         return folders[6]
+    elif ext in databaseExts:
+        return folders[7]    
+    else:
+        return folders[8]
 
 def createDirIfNotExists(folder):
     if not os.path.exists(folder):
